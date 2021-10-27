@@ -1,0 +1,77 @@
+//
+// Name:            Buttons
+//
+// Description:     Contains all button styles
+//
+
+// ========================================================================
+// Component
+// ========================================================================
+
+.button {
+	border: 1px $color-white solid;
+	background-color: transparent;
+	color: $color-white;
+	font-weight: bold;
+	letter-spacing: 2px;
+	font-size: 10px;
+	height: 36px;
+	border-radius: 3px;
+	width: 130px;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 36px;
+	position: relative;
+	transform: perspective(1px) translateZ(0);
+	transition: .5s;
+
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $color-white;
+		transform: scaleX(0);
+		transition: transform .5s;
+		transition-timing-function: ease-out;
+	}
+
+	&.large {
+		height: 60px;
+		line-height: 60px;
+	}
+
+	&:hover {
+		color: $secondary-orange;
+
+		&:before {
+			transform: scaleX(1);
+			transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+		}
+	}
+}
+
+.button-row {
+	margin: 30px 0;
+	display: flex;
+	align-items: center;
+
+	> * {
+		margin-right: 20px;
+	}
+
+	&.center {
+		justify-content: center;
+		
+		> * {
+			margin: 0 10px;
+		}
+	}
+
+	&.large-spacing {
+		margin: 115px 0;
+	}
+}

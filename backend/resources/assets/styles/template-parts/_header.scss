@@ -1,0 +1,76 @@
+//
+// Name:            Header
+//
+// Description:     Contains all header styles
+//
+
+// ========================================================================
+// Component: Header
+// ========================================================================
+
+header.header {
+	position:relative;
+	width:100%;
+	background:$secondary-orange;
+	color: $color-white;
+
+	.row {
+		height: 95px;
+		margin-top: 0;
+	}
+	.logo {
+		display:inline-block;
+		width:100px;
+		height: 44px;
+		margin: 0;
+		overflow: hidden;
+		@media only screen and (min-width: 1200px) {
+			width:157px;
+			height:70px;
+		}
+		a {
+			display:inline-block;
+			width:157px;
+			height:70px;
+			text-indent:-9999px;
+			background-image: url("../images/logo.svg");
+			background-size: 100%;
+			background-repeat: no-repeat;
+		}
+	}
+	.hamburger {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 767px) and (min-width: 1px) {
+	header.header {
+		.row {
+			margin: 0;
+		}
+		.hamburger {
+			display: block;
+		}
+		.row>[class*=col-]:first-child {
+			margin-top:0;
+		}
+	}
+}
+
+@media only screen and (max-width: 568px) and (min-width: 1px) {
+	header.header {
+		.logo {
+
+			a {
+
+			}
+		}
+		.hamburger {
+			padding-right: 10px;
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
