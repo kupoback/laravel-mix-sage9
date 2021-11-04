@@ -1,33 +1,17 @@
 @import "common/variables";
 
-@import "~sass-flex-mixin/_flex";
-//@import "~flexboxgrid-sass/flexboxgrid";
-@import "~hamburgers/dist/hamburgers.min.css";
-@import "~swiper/swiper";
-
 // common
 @import "common/mixins";
 @import "common/fonts";
 
 // sacffolding/primary
 @import "common/reset";
-@import "template-parts/layouts";
-
 
 // Default WordPress CSS
 @import "default/wordpress";
 
 // components
-@import "components/base";
-@import "components/animation";
-@import "components/button";
-@import "components/form";
 
 // template parts
-@import "template-parts/header";
-@import "template-parts/hero";
-@import "template-parts/nav";
-@import "template-parts/footer";
 
-// template parts
-@import "templates/home";
+// templates

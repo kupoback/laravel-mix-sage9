@@ -1,7 +1,6 @@
 /**
  * A file that contains most of the Vue Components and logic
  */
-import axios from "axios";
 import Vue from "vue";
 import {store} from "./Vuex/store.js";
 import { MediaQueries } from "vue-media-queries";

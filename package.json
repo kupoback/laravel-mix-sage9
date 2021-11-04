@@ -1,56 +1,50 @@
 {
-	"name": "sage-laravel-mix",
-	"version": "9.0.9",
-	"author": "Roots <team@roots.io>",
-	"homepage": "https://roots.io/sage/",
+	"name": "sage-9-boilerplate",
 	"private": true,
-	"browserslist": [
-		"extends @wordpress/browserslist-config",
-		"last 2 versions",
-		"android 4",
-		"opera 12"
-	],
 	"scripts": {
 		"build": "mix",
 		"build:production": "mix --production",
 		"start": "mix watch",
 		"hot": "mix watch --hot"
 	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config",
+		"last 2 versions",
+		"android 4",
+		"opera 12"
+	],
 	"engines": {
 		"node": ">=12.14.0"
 	},
 	"devDependencies": {
-		"autoprefixer": "^10.3.7",
+		"@tinypixelco/laravel-mix-wp-blocks": "^1.1.0",
+		"@wordpress/babel-preset-default": "^6.3.4",
+		"@wordpress/browserslist-config": "^4.1.0",
+		"@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
+		"autoprefixer": "^10.4.0",
 		"axios": "^0.24.0",
 		"babel-eslint": "^10.1.0",
 		"browser-sync": "^2.27.6",
 		"browser-sync-webpack-plugin": "^2.3.0",
-		"chartjs": "^0.3.24",
-		"easydropdown": "^4.2.0",
 		"eslint": "^8.1.0",
 		"eslint-plugin-import": "^2.25.2",
-		"flexboxgrid-sass": "^8.0.5",
-		"font-awesome": "^4.7.0",
-		"fullcalendar": "^5.10.0",
-		"hamburgers": "^1.1.3",
 		"jquery": "^3.6.0",
 		"laravel-mix": "^6.0.34",
 		"postcss": "^8.3.11",
-		"prcomboselect": "PebbleRoad/combo-select",
 		"sass": "^1.43.3",
 		"sass-flex-mixin": "^1.0.3",
 		"sass-loader": "^12.1.0",
-		"scrollmagic": "^2.0.8",
 		"stylelint": "^14.0.1",
 		"stylelint-config-standard": "^23.0.0",
-		"swiper": "^6.8.4",
 		"vue": "^2.6.14",
 		"vue-accessible-modal": "^0.4.0",
 		"vue-loader": "^15.9.7",
 		"vue-media-queries": "^0.0.5",
 		"vue-template-compiler": "^2.6.14",
 		"vuejs-paginate": "^2.1.0",
-		"vuex": "^3.6.2",
-		"waypoints": "^4.0.1"
+		"vuex": "^3.6.2"
+	},
+	"peerDependencies": {
+		"jquery": "^3.5.1"
 	}
 }

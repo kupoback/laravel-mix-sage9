@@ -1,16 +1,3 @@
-//
-// Component:       Variables
-// Description:     Defines all color and style related values as variables
-//                  to allow easy customization for the most common cases.
-//
-// ========================================================================
-
-// ========================================================================
-// Component: Variables
-// ========================================================================
-
-
-
 // Colors
 $brand-primary: #000000;
 $secondary-orange: #fa8600;
@@ -35,17 +22,8 @@ $form-field-height:44px;
 $wrapper-max-width-large:1440px;
 $wrapper-max-width-small:1200px;
 
-$hamburger-padding-x                       : 15px;
-$hamburger-padding-y                       : 15px;
-$hamburger-layer-width                     : 40px;
-$hamburger-layer-height                    : 4px;
-$hamburger-layer-spacing                   : 6px;
-$hamburger-layer-color                     : #000;
-$hamburger-layer-border-radius             : 4px;
-
 $breakpoints:
   sm 568px 568px,
   md 768px 768px,
   lg 960px 960px,
   xlg 1200px 1200px !default;
-$flexboxgrid-max-width: $wrapper-max-width-large !default;

@@ -1,6 +1,6 @@
 const mix = require("laravel-mix");
 const assetPath = `./resources/assets`;
-const browserUrl = "https://frontend.test";
+const browserUrl = "https://laravel-mix-be.test"; // Used for the frontend watcher
 
 /*
  |--------------------------------------------------------------------------
@@ -14,7 +14,16 @@ const browserUrl = "https://frontend.test";
  */
 
 mix.setPublicPath("./dist")
-   .browserSync(browserUrl)
+   .browserSync({
+      proxy: browserUrl,
+      port: 3000, // Change this to a different number, like 8080, if you encounter issues starting it
+      files: [
+         './app/**/*.php',
+         './resources/views/*.{php}',
+         './resources/assets/*.{scss,css,js,vue}',
+      ],
+      reloadOnRestart: true,
+   })
 
    /**
     * Compiling the SASS
@@ -23,12 +32,16 @@ mix.setPublicPath("./dist")
    .options({
        processCssUrls: false,
        postCss: [
-          require('autoprefixer')
+          require('autoprefixer'),
        ]
    })
 
-   .vue({version: 2})
-   .js(`${assetPath}/vue/vue.js`, 'scripts')
+   /**
+    * Compiling Vue JS
+    * Uncomment to try Vue.
+    */
+   // .vue({version: 2})
+   // .js(`${assetPath}/vue/vue.js`, 'scripts')
 
    /**
     * Compiling JS
