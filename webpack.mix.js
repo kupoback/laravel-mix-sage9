@@ -1,4 +1,8 @@
 const mix = require("laravel-mix");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const imageminMozjpeg = require('imagemin-mozjpeg');
+
 const assetPath = `./resources/assets`;
 const browserUrl = "https://laravel-mix-be.test"; // Used for the frontend watcher
 
@@ -54,7 +58,33 @@ mix.setPublicPath("./dist")
     * Copy the fonts and images to the dist folder
     */
    .copyDirectory(`${assetPath}/fonts`, "dist/fonts")
-   .copyDirectory(`${assetPath}/images`, "dist/images")
+   /**
+    * Copy and compress SVG, JPEG, PNG, and Gifs
+    */
+   .webpackConfig({
+      plugins: [
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: `${assetPath}/images`, // -> the source location (relative to where your webpack.mix.js is located)
+              to: 'images', // Laravel mix will place this in 'dist/images'
+            },
+          ],
+        }),
+        new ImageminPlugin({
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          optipng: { optimizationLevel: 2 },
+          gifsicle: { optimizationLevel: 3 },
+          pngquant: { quality: '65-90', speed: 4 },
+          svgo: {
+             plugins: [
+               { removeViewBox: false },
+             ],
+          },
+          plugins: [imageminMozjpeg({ quality: 75 })],
+        }),
+      ],
+    })
    // Comment out if not using font-awesome
    .copyDirectory(`./node_modules/font-awesome/fonts`, "dist/fonts")
 
