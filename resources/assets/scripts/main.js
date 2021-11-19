@@ -12,13 +12,9 @@ import blog from './routes/blog'; // Used for home.blade.php
  * @type {Router} routes - An instance of our router
  */
 const routes = new Router({
-	/** All pages */
 	common,
-	/** Home page */
 	home,
-	/** Posts Archive */
 	blog,
-	/** Custom Page Templates */
 });
 
 /**
@@ -40,6 +36,4 @@ if (typeof NodeList.prototype.forEach !== 'function')  {
 }
 
 /** Load Events */
-$(() => {
-    routes.loadEvents()
-});
+$(() => routes.loadEvents());

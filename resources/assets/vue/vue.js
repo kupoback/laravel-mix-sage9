@@ -43,11 +43,3 @@ if (navigationElm !== null) {
         render: h => h(navigationContainer)
     });
 }
-
-if (document.getElementById("modal-cnt") !== null) {
-    const ModalWindow = Vue.component("modal", require('./Components/ModalContainer.vue').default);
-    const modalElm = new Vue({
-        el: "#modal-cnt",
-        render: h => h(ModalWindow)
-    });
-}
