@@ -17,47 +17,37 @@ const browserUrl = "https://laravel-mix-be.test"; // Used for the frontend watch
  |
  */
 
-mix.setPublicPath("./dist")
-   .browserSync({
-      proxy: browserUrl,
-      port: 3000, // Change this to a different number, like 8080, if you encounter issues starting it
-      files: [
-         './app/**/*.php',
-         './resources/views/*.{php}',
-         './resources/assets/*.{scss,css,js,vue}',
-      ],
-      reloadOnRestart: true,
-   })
+mix.setPublicPath("./dist");
 
-   /**
-    * Compiling the SASS
-   */
-   .sass(`${assetPath}/styles/main.scss`, "styles")
+/**
+* Compiling the SASS
+*/
+mix.sass(`${assetPath}/styles/main.scss`, "styles")
    .options({
        processCssUrls: false,
        postCss: [
           require('autoprefixer'),
        ]
-   })
+   });
 
-   /**
-    * Compiling Vue JS
-    * Uncomment to try Vue.
-    */
-   // .vue({version: 2})
-   // .js(`${assetPath}/vue/vue.js`, 'scripts')
+/**
+* Compiling Vue JS
+* Uncomment to try Vue.
+*/
+//mix.vue({version: 2})
+//   .js(`${assetPath}/vue/vue.js`, 'scripts');
 
-   /**
-    * Compiling JS
-    */
-  .js(`${assetPath}/scripts/main.js`, "scripts")
+/**
+* Compiling JS
+*/
+mix.js(`${assetPath}/scripts/main.js`, "scripts")
   .autoload({ jquery: ["$", "window.jQuery"] })
-  .extract()
+  .extract();
 
-   /**
-    * Copy the fonts and images to the dist folder
-    */
-   .copyDirectory(`${assetPath}/fonts`, "dist/fonts")
+/**
+* Copy the fonts and images to the dist folder
+*/
+mix.copyDirectory(`${assetPath}/fonts`, "dist/fonts")
    /**
     * Copy and compress SVG, JPEG, PNG, and Gifs
     */
@@ -86,10 +76,24 @@ mix.setPublicPath("./dist")
       ],
     })
    // Comment out if not using font-awesome
-   .copyDirectory(`./node_modules/font-awesome/fonts`, "dist/fonts")
+   .copyDirectory(`./node_modules/font-awesome/fonts`, "dist/fonts");
 
-   /**
-    * Add source maps and version the files
-    */
-   .sourceMaps()
-   .version();
+mix.browserSync({
+      proxy: browserUrl,
+      port: 3000, // Change this to a different number, like 8080, if you encounter issues starting it
+      files: [
+          "./app/**/*.{php}",
+          "./dist/**/*.{scss,css,js,vue}",
+          "./resources/views/**/*.{php}",
+      ],
+      reloadOnRestart: true,
+  });
+  
+/**
+* Add source maps and version the files
+*/
+mix.sourceMaps();
+
+if (mix.inProduction()) {
+    mix.version();
+}
