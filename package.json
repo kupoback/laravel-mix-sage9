@@ -17,12 +17,14 @@
 		"node": ">=12.14.0"
 	},
 	"devDependencies": {
+		"@babel/preset-react": "^7.17.12",
+		"@reduxjs/toolkit": "^1.8.2",
 		"@tinypixelco/laravel-mix-wp-blocks": "^1.1.0",
 		"@wordpress/babel-preset-default": "^6.3.4",
 		"@wordpress/browserslist-config": "^4.1.0",
 		"@wordpress/dependency-extraction-webpack-plugin": "^3.2.1",
 		"autoprefixer": "^10.4.0",
-		"axios": "^0.24.0",
+		"axios": "^0.27.0",
 		"babel-eslint": "^10.1.0",
 		"browser-sync": "^2.27.6",
 		"browser-sync-webpack-plugin": "^2.3.0",
@@ -32,8 +34,9 @@
 		"imagemin-mozjpeg": "^9.0.0",
 		"imagemin-webpack-plugin": "^2.4.2",
 		"jquery": "^3.6.0",
-		"laravel-mix": "^6.0.34",
+		"laravel-mix": "^6.0",
 		"postcss": "^8.3.11",
+		"rimraf": "^3.0.2",
 		"sass": "^1.43.3",
 		"sass-flex-mixin": "^1.0.3",
 		"sass-loader": "^12.1.0",
@@ -48,6 +51,6 @@
 		"vuex": "^3.6.2"
 	},
 	"peerDependencies": {
-		"jquery": "^3.5.1"
+		"jquery": "^3.6.0"
 	}
 }

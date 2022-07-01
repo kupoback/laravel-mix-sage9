@@ -8,10 +8,7 @@ import * as getters from "./getters";
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-    state: {
-        desktopNav: [],
-        mobileNav: [],
-    },
+    state: {},
     mutations,
     actions,
     getters,
